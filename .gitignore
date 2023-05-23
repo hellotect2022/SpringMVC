@@ -1,0 +1,14 @@
+#setting 파일
+.settings/
+
+#.classpath
+.classpath
+
+#ignoring target
+target/
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# eclipse project
+.project
