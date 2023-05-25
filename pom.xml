@@ -120,7 +120,15 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>        
+		</dependency>  
+		
+		<!-- Controller 메서드 return 객체를 JSON 형식으로 전환해주는 Converter -->
+	    <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.4</version>
+		</dependency>
+		      
 	</dependencies>
     <build>
         <plugins>
