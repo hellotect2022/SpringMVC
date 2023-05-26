@@ -128,7 +128,68 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.9.4</version>
 		</dependency>
-		      
+		
+		<!-- 2023-05-26 HDH :> SQL-MAPPING LIBRARY MY-BATIS 추가 -->
+	    <dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.6</version>
+		</dependency>
+		<!-- 2023-05-26 HDH :> Spring, Mybatis 를 연결해주는 라이브러리  -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<!-- 2023-05-26 HDH :> Spring 트랜잭션 처리를 위한 라이브러리-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- 2023-05-26 HDH :> Spring 데이터베이스 처리를 위한 라이브러리-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
+		<!-- spring-jdbc 대신 Hikari Connection을 이용한 Pool Test -->
+		<!--https://github.com/brettwooldridge/HikariCP-->
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>4.0.3</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+		<dependency>
+		    <groupId>org.mariadb.jdbc</groupId>
+		    <artifactId>mariadb-java-client</artifactId>
+		    <version>3.1.4</version>
+		</dependency>
+		
+		<!-- log4jdbc -->
+		<dependency>
+		    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+		    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+		    <version>1.16</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-api</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
+		
+		<!-- end of log4jdbc -->
+		
 	</dependencies>
     <build>
         <plugins>
