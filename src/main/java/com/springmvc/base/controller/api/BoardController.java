@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.springmvc.base.mapper.BoardMapper;
+import com.springmvc.base.service.BoardService;
 import com.springmvc.base.vo.BoardVO;
 import com.springmvc.base.vo.RequestVO;
 
 @RestController
 @RequestMapping("/board")
 public class BoardController {
-
+	
 	@Autowired
-	private BoardMapper boardMapper;
+	BoardService boardService;
 
 	public class SampleDto {
 		String name;
@@ -74,7 +73,7 @@ public class BoardController {
 
 		List<BoardVO> test1 = new ArrayList<BoardVO>();
 		System.out.println("1");
-		test1 = boardMapper.getBoardList();
+		test1 = boardService.getBoardList();
 		System.out.println("2");
 
 		return test1;
@@ -94,7 +93,7 @@ public class BoardController {
 		  
 		  List<BoardVO> test1 = new ArrayList<BoardVO>(); 
 		  System.out.println("1");
-		  test1 = boardMapper.getBoardList(); 
+		  test1 = boardService.getBoardList(); 
 		  System.out.println("2");
 		  
 		  return test1; 
