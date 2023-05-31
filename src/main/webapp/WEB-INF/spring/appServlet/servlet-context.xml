@@ -24,6 +24,7 @@
 	<!-- servlet-context 란 쉽게말해서 스프링 mvc 프로젝트와 관련된 의존성 주입을 위한 설정 파일 -->
 	<context:component-scan base-package="com.springmvc.base.service" />
 	<context:component-scan base-package="com.springmvc.base.controller.api" />
+	<context:component-scan base-package="com.springmvc.base.controller" />
 
 	
 	
