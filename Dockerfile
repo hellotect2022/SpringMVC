@@ -16,7 +16,7 @@ RUN ["apt-get", "install", "vim", "-y"]
 RUN ["apt-get", "install", "openjdk-8-jdk", "maven", "-y"]
 
 RUN mvn install
-#COPY target/base.war /usr/local/tomcat/webapps/ROOT.war
+COPY target/base.war /usr/local/tomcat/webapps/ROOT.war
 #ADD target/ROOT.war /usr/local/tomcat/webapps/
 # EXPOSE 8081
-#CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
+CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
