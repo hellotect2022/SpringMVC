@@ -13,7 +13,7 @@ RUN ["apt-get", "install", "openjdk-8-jdk", "maven", "-y"]
 #RUN apt-get install -y openjdk-8-jdk maven
 
 RUN mvn package
-COPY ./service.war /usr/local/tomcat/webapps
+COPY ./base.war /usr/local/tomcat/webapps
 #ADD target/ROOT.war /usr/local/tomcat/webapps/
 EXPOSE 8081
 CMD ["/usr/local/tomcat/bin/catalina.sh", "run"]
