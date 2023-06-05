@@ -1,7 +1,7 @@
 //
 pipeline {
     environment {
-        imageName = "duhyun/springlegacy-mvc"
+        imageName = "8081:8081duhyun/springlegacy-mvc"
         registryCredential = 'eastshine-token'
         kubeconfig = '/home/duhyun/.kube/config'
         dockerImage = ''
@@ -30,16 +30,14 @@ pipeline {
                 }
             }
         }
-        /**
         stage('3. K8s Deploy') {
             steps {
                 script {
                     echo "3. K8s Deploy..."
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ./deploy-jwt.yaml -n duhyun"
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ./deploy-jwt.yaml -n duhyun"
+                    //sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ./deploy-jwt.yaml -n duhyun"
+                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ./deploy-springmvc.yaml -n duhyun"
                 }
             }
         }
-        **/
     }
 }
