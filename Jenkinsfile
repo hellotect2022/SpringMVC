@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-        /**
+        
         stage('2. Dockder Push') {
             steps {
                 script {
@@ -30,6 +30,7 @@ pipeline {
                 }
             }
         }
+        /**
         stage('3. K8s Deploy') {
             steps {
                 script {

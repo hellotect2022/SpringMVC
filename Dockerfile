@@ -4,6 +4,7 @@ FROM tomcat:9
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
+COPY server.xml /usr/local/tomcat/conf/server.xml
 
 # 톰캣 타임존 설정
 RUN ["rm", "/etc/localtime"]
