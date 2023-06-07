@@ -1,0 +1,47 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springmvc.base.mapper.UserMapper">
+     <resultMap type="com.springmvc.base.vo.UserVO" id="userMap">
+        <result column="UserId" property="userId" />
+        <result column="Password" property="password" />
+        <result column="UserName" property="userName" />
+<!--         <result column="STA_DATE" property="startDate" javaType="java.sql.Date" />
+        <result column="END_DATE" property="endDate" javaType="java.sql.Date" />
+        <result column="STATE" property="state" />
+        <result column="CRE_DATE" property="createdDate" javaType="java.sql.Date" />
+        <result column="TAGS" property="tags" /> -->
+    </resultMap>
+
+    <insert id="createUser" 
+    		parameterType="com.springmvc.base.vo.UserVO" >
+        insert into tbl_user(UserId,Password,UserName)
+        value(#{userId},#{password},#{userName})
+        <!--  -->
+        <selectKey keyColumn="UserId" keyProperty="userId" order="AFTER" resultType="string">
+        	select UserId
+        	from tbl_user 
+        	where UserId = #{userId}
+        </selectKey>
+    </insert>
+    
+    <select id="findByUsername" parameterType="map" resultMap="userMap">
+        select * 
+        from tbl_user 
+        where UserId = #{userId}
+    </select>
+    
+<!--     <select id="existsByUsername" resultType="boolean">
+        select IF(COUNT(*) = 1, 1, 0)
+        from tbl_user 
+        where username = #{username}
+    </select> -->
+    
+    <select id="findByUsernameAndPassword" parameterType="map" resultMap="userMap">
+        select *
+        from tbl_user 
+        where UserId = #{userId} 
+        and Password = #{password}
+    </select>
+    
+</mapper>
