@@ -198,9 +198,37 @@
 			<version>1.18.28</version>
 			<scope>provided</scope>
 		</dependency>
-
+		
+		<!-- Spring Web Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.2.15.RELEASE</version>
+		</dependency>	
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.2.15.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.2.15.RELEASE</version>
+		</dependency>
+		
+		<dependency><!-- jsp 용 태그 라이브러리 -->
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.2.15.RELEASE</version>
+		</dependency>
+		
+		<!-- Spring Web Security EOF -->
+		
 	</dependencies>
 	<build>
+		<finalName>base</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>
