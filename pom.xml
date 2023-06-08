@@ -198,7 +198,7 @@
 			<version>1.18.28</version>
 			<scope>provided</scope>
 		</dependency>
-		
+	
 		<!-- spring security 2023-06-07-->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -228,6 +228,7 @@
 
 	</dependencies>
 	<build>
+		<finalName>base</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-eclipse-plugin</artifactId>

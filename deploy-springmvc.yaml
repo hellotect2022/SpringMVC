@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springmvc-deployment
+  labels:
+    app: springmvc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springmvc
+  template:
+    metadata:
+      labels:
+        app: springmvc
+    spec:
+      containers:
+      - name: springmvc
+        image: registry-1.docker.io/dhhan/springmvc:latest
+        resources : 
+          limits:
+            memory: "500Mi"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8081
+        env:
+      imagePullSecrets:
+      - name: regcred
