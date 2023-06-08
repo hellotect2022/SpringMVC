@@ -15,6 +15,7 @@
 		<property name="username" value="eumuser"/>
 		<property name="password" value="Covi@2020"/>
 		<!-- <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/springmvc_board"/>
+		<property name="jdbcUrl" value="jdbc:mariadb://localhost:33061/springmvc_board"/>
 		<property name="username" value="dhhan"/>
 		<property name="password" value="dhhan"/> -->
 	</bean>	
