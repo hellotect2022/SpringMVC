@@ -20,14 +20,14 @@
         <!--  -->
         <selectKey keyColumn="UserId" keyProperty="userId" order="AFTER" resultType="string">
         	select UserId
-        	from tbl_user 
+        	from TBL_USER 
         	where UserId = #{userId}
         </selectKey>
     </insert>
     
     <select id="findByUsername" parameterType="map" resultMap="userMap">
         select * 
-        from tbl_user 
+        from TBL_USER 
         where UserId = #{userId}
     </select>
     
@@ -39,7 +39,7 @@
     
     <select id="findByUsernameAndPassword" parameterType="map" resultMap="userMap">
         select *
-        from tbl_user 
+        from TBL_USER 
         where UserId = #{userId} 
         and Password = #{password}
     </select>

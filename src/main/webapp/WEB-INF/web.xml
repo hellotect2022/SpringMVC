@@ -5,18 +5,28 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
 	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
 	
+	 <!-- Spring Security Filter -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+ 
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+<!-- 2023-06-08 Servlet Filter Servelet 에 접근하기전에 요청이 제일 먼저 들어감 -->
+<!-- 	<filter>
+		<filter-name>JwtAuthenticationFilter</filter-name>
+		<filter-class>com.springmvc.base.security.JwtAuthenticationFilter</filter-class>
+	</filter>
 	
-	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<!-- <param-value>/WEB-INF/spring/root-context.xml</param-value> -->
-		<param-value>/WEB-INF/spring/*-context.xml</param-value>
-	</context-param>
+	<filter-mapping>
+		<filter-name>JwtAuthenticationFilter</filter-name>
+		<url-pattern>/board</url-pattern>
+	</filter-mapping> -->
+<!-- 	Servlet Filter eof -->
 	
-	<!-- Creates the Spring Container shared by all Servlets and Filters -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
 
 	<!-- Processes application requests -->
 	<servlet>
@@ -34,13 +44,18 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 2023-06-07 -->
-<!-- 	<filter>
-		
-	</filter> -->
+	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<!-- <param-value>/WEB-INF/spring/root-context.xml</param-value> -->
+		<param-value>/WEB-INF/spring/root-context.xml
+					/WEB-INF/spring/security-context.xml
+		</param-value>
+	</context-param>
 	
+	<!-- Creates the Spring Container shared by all Servlets and Filters -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 	
-	
-	
-
 </web-app>
