@@ -216,6 +216,15 @@
 			<version>5.0.16.RELEASE</version>
 		</dependency>
 		<!-- spring security 2023-06-07-->
+		
+		<!-- jwt -->
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+		    <groupId>io.jsonwebtoken</groupId>
+		    <artifactId>jjwt</artifactId>
+		    <version>0.9.1</version>
+		</dependency>
+		<!-- jwt eof -->
 
 	</dependencies>
 	<build>

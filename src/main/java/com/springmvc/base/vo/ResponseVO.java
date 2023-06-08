@@ -1,8 +1,14 @@
 package com.springmvc.base.vo;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ResponseVO<T> {
 	private String status="SUCCESS";
 	private String message;
@@ -26,6 +32,5 @@ public class ResponseVO<T> {
 	public void setData(Object data) {
 		this.data = data;
 	}
-	
 	
 }

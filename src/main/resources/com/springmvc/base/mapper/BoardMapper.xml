@@ -16,7 +16,7 @@
  
     <select id="getBoardList" resultType="com.springmvc.base.vo.BoardVO">
         select * 
-        from tbl_board 
+        from TBL_BOARD 
         where bno > 0
     </select>
     
