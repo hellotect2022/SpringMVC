@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+		xmlns:security="http://www.springframework.org/schema/security"
+		xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:secyrity="http://www.springframework.org/schema/security"
+		xsi:schemaLocation="http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<security:http auto-config="true"  use-expressions="true" >
+		<security:intercept-url pattern="/**" access="permitAll"/>
+<!--		<security:intercept-url pattern="/board/**" access="isAuthenticated()"/>-->
+<!--		<security:intercept-url pattern="/auth/**" access="permitAll"/>-->
+<!--		<security:intercept-url pattern="/" access="permitAll"/>-->
+<!--		<security:http-basic />-->
+<!--		<security:form-login />-->
+		<security:csrf disabled="true"/>
+	    <security:custom-filter before="SERVLET_API_SUPPORT_FILTER" ref="JwtAuthenticationFilter"/>
+<!--	    <security:custom-filter after="FIRST" ref="JwtAuthenticationFilter"/>-->
+		<secyrity:access-denied-handler ref="accessDeniedHandler"/>
+<!--		<security:access-denied-handler error-page="/WEB-INF/views/home.jsp"/>-->
+<!--		<security:access-denied-handler ref="accessDeniedHandler" error-page="/WEB-INF/views/home.jsp"/>-->
+	</security:http>
+
+
+ 	<security:authentication-manager>
+ 		<security:authentication-provider>
+            <security:user-service>
+                <security:user name="admin" password="123" authorities="ROLE_USER, ROLE_ADMIN" />
+                <security:user name="guest" password="123" authorities="ROLE_USER" />
+            </security:user-service>
+        </security:authentication-provider>
+ 	</security:authentication-manager> 	
+ 	
+  	<bean id="JwtAuthenticationFilter" class="com.springmvc.base.security.JwtAuthenticationFilter">
+	</bean>
+
+	<bean id="accessDeniedHandler" class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+		<property name="errorPage" value="/WEB-INF/views/home.jsp" />
+	</bean>
+	
+
+	<context:component-scan base-package="com.springmvc.base.security" />
+
+</beans>
