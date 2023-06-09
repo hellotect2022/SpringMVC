@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springmvc-deployment
+  name: springmvc
   labels:
     app: springmvc
 spec:
