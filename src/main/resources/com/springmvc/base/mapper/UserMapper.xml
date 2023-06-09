@@ -15,7 +15,7 @@
 
     <insert id="createUser" 
     		parameterType="com.springmvc.base.vo.UserVO" >
-        insert into tbl_user(UserId,Password,UserName)
+        insert into TBL_USER(UserId,Password,UserName)
         value(#{userId},#{password},#{userName})
         <!--  -->
         <selectKey keyColumn="UserId" keyProperty="userId" order="AFTER" resultType="string">

@@ -69,8 +69,8 @@ public class BoardController {
 	public SampleDto getDto() {
 
 		SampleDto s1 = new SampleDto();
-		s1.setAge("1");
-		s1.setName("Han");
+		s1.setAge("99");
+		s1.setName("k8s_test!!");
 
 		return s1;
 	}
