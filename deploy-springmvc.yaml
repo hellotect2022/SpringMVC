@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: springmvc
-        image: dhhan/springlegacy-mvc:latest
+        image: duhyun/springlegacy-mvc:latest
         resources : 
           limits:
             memory: "500Mi"
