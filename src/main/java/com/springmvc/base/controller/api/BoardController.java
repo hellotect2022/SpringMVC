@@ -75,6 +75,17 @@ public class BoardController {
 		return s1;
 	}
 
+	@GetMapping("/testCount")
+	@ResponseBody
+	public int getCount() {
+
+		List<BoardVO> test1 = new ArrayList<BoardVO>();
+		test1 = boardService.getBoardList();
+
+		return test1.size();
+
+	}
+
 	@GetMapping("/testList")
 	@ResponseBody
 	public List<BoardVO> getDtoList() {
