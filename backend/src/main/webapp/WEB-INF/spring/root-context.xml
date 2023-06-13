@@ -11,9 +11,7 @@
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/> -->
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
-<<<<<<< HEAD:src/main/webapp/WEB-INF/spring/root-context.xml
-		<property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/springmvc_board"/>
-=======
+<!--		<property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/springmvc_board"/>-->
 		<property name="jdbcUrl" value="jdbc:mariadb://mariadb-sts-0.mariadb-service.default.svc.cluster.local/toy"/>
 		<property name="username" value="toyusers"/>
 		<property name="password" value="Covi@2023"/>
@@ -22,7 +20,6 @@
 <!--		<property name="password" value="Covi@2020"/>-->
 		<!-- <property name="jdbcUrl" value="jdbc:mariadb://localhost:3306/springmvc_board"/>
 		<property name="jdbcUrl" value="jdbc:mariadb://localhost:33061/springmvc_board"/>
->>>>>>> 2a0653347e13befa8c17c89fee9d4c39a1fabf9b:backend/src/main/webapp/WEB-INF/spring/root-context.xml
 		<property name="username" value="dhhan"/>
 		<property name="password" value="dhhan"/> -->
 	</bean>	
