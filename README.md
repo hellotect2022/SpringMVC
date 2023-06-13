@@ -3,7 +3,7 @@
 Backend - Apache Tomcat 9 + Spring MVC5 
 Frontend - React Redux 
 
-Team members (Alphabetical)
+Team members
 
 Benjamin Jung (정병수) : 팀장
 지수아 : Frontend
