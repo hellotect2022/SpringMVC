@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: springmvc-deployment
+  name: springmvc
   labels:
     app: springmvc
 spec:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: springmvc
-        image: registry-1.docker.io/dhhan/springmvc:latest
+        image: duhyun/springlegacy-mvc:latest
         resources : 
           limits:
             memory: "500Mi"

@@ -69,10 +69,21 @@ public class BoardController {
 	public SampleDto getDto() {
 
 		SampleDto s1 = new SampleDto();
-		s1.setAge("1");
-		s1.setName("Han");
+		s1.setAge("99");
+		s1.setName("k8s_test!!");
 
 		return s1;
+	}
+
+	@GetMapping("/testCount")
+	@ResponseBody
+	public int getCount() {
+
+		List<BoardVO> test1 = new ArrayList<BoardVO>();
+		test1 = boardService.getBoardList();
+
+		return test1.size();
+
 	}
 
 	@GetMapping("/testList")
@@ -90,24 +101,27 @@ public class BoardController {
 	@ResponseBody
 	@PostMapping("/testList2")
 	public List<BoardVO> getDtoList2(@RequestBody RequestVO requestVO) {
+		try{
+			RequestVO dto = requestVO;
+			System.out.println(requestVO.getToken());
 
-		RequestVO dto = requestVO;
-		System.out.println(requestVO.getToken());
+			if (dto == null) {
+				return null;
+			}
 
-		if (dto == null) {
+			if (!dto.getToken().equals("1")) {
+				return null;
+			}
+
+			List<BoardVO> test1 = new ArrayList<BoardVO>();
+			System.out.println("1");
+			test1 = boardService.getBoardList();
+			System.out.println("2");
+			return test1;
+		} catch (Exception e){
+			log.info(e.getMessage());
 			return null;
 		}
-
-		if (!dto.getToken().equals("1")) {
-			return null;
-		}
-
-		List<BoardVO> test1 = new ArrayList<BoardVO>();
-		System.out.println("1");
-		test1 = boardService.getBoardList();
-		System.out.println("2");
-
-		return test1;
 	}
 
 	@GetMapping("/redirecting") 
