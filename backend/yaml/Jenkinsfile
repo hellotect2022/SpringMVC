@@ -34,13 +34,8 @@ pipeline {
             steps {
                 script {
                     echo "3. K8s Deploy..."
-<<<<<<< HEAD:Jenkinsfile
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ./deploy-springmvc.yaml -n kang"
-
-=======
                     sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ./deploy-springmvc.yaml -n duhyun"
                     sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ./deploy-springmvc.yaml -n duhyun"
->>>>>>> 2a0653347e13befa8c17c89fee9d4c39a1fabf9b:backend/yaml/Jenkinsfile
                 }
             }
         }
