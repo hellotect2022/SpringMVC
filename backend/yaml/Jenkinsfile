@@ -1,9 +1,9 @@
 //
 pipeline {
-    environment {
-        imageName = "duhyun/springlegacy-mvc"
-        registryCredential = 'eastshine-token'
-        kubeconfig = '/home/duhyun/.kube/config'
+      environment {
+        imageName = "storkcr/test-push"
+        registryCredential = 'kang-docker'
+        kubeconfig = '/home/kang/.kube/config'
         dockerImage = ''
     }
     agent any
