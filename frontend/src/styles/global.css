@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: #222;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+body {
+  height: 100%;
+  color: #222;
+  background-color: #fff;
+}
+.header {
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+.container-wrapper {
+  height: 100%;
+  background-color: #fff;
+  position: relative;
+}
