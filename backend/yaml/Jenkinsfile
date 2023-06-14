@@ -2,7 +2,7 @@
 pipeline {
       environment {
         imageName = "duhyun/springlegacy-mvc"
-        dockerPath = "-f backend/yaml/Dockerfile"
+        dockerPath = "-f .backend/yaml/Dockerfile"
         registryCredential = 'eastshine-token'
         kubeconfig = '/home/duhyun/.kube/config'
         dockerImage = ''
