@@ -55,7 +55,7 @@ pipeline {
             steps {
                 script {
                     echo "5. K8s Port-Foward..."
-                    sh "/usr/local/bin/kubectl --address 0.0.0.0 service/springmvc -n duhyun 8888:80"
+                    sh "/usr/local/bin/kubectl port-forward --address 0.0.0.0 service/springmvc -n duhyun 8888:80>/dev/null 2>&1 &"
                 }
             }
         }
