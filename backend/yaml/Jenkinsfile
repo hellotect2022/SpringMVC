@@ -1,6 +1,8 @@
 //
 pipeline {
       environment {
+        pathBackend = "backend"
+        pathYaml = "backend/yaml"
         imageName = "duhyun/springlegacy-mvc"
         dockerPath = "-f backend/yaml/Dockerfile ."
         registryCredential = 'eastshine-token'
@@ -16,7 +18,7 @@ pipeline {
             steps {
                 script {
                     echo "1. Docker Building..."
-                    dockerImage = docker.build(imageName,dockerPath)
+                    dockerImage = docker.build(imageName,"-f "+$pathYaml+"/Dockerfile .")
                 }
             }
         }
@@ -35,8 +37,8 @@ pipeline {
             steps {
                 script {
                     echo "3. K8s Deploy..."
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ./deploy-springmvc.yaml -n duhyun"
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ./deploy-springmvc.yaml -n duhyun"
+                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f $pathYaml/deploy-springmvc.yaml -n duhyun"
+                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f $pathYaml/deploy-springmvc.yaml -n duhyun"
                 }
             }
         }
@@ -44,8 +46,8 @@ pipeline {
             steps {
                 script {
                     echo "4. K8s Service..."
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ./service-springmvc.yaml -n duhyun"
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ./service-springmvc.yaml -n duhyun"
+                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f $pathYaml/service-springmvc.yaml -n duhyun"
+                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f $pathYaml/service-springmvc.yaml -n duhyun"
                 }
             }
         }
