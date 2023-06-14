@@ -2,6 +2,7 @@
 pipeline {
       environment {
         imageName = "duhyun/springlegacy-mvc"
+        dockerPath = "-f backend/yaml/Dockerfile"
         registryCredential = 'eastshine-token'
         kubeconfig = '/home/duhyun/.kube/config'
         dockerImage = ''
@@ -15,7 +16,7 @@ pipeline {
             steps {
                 script {
                     echo "1. Docker Building..."
-                    dockerImage = docker.build(imageName)
+                    dockerImage = docker.build(imageName,dockerPath)
                 }
             }
         }
