@@ -42,22 +42,5 @@ pipeline {
                 }
             }
         }
-        stage('4. K8s Service') {
-            steps {
-                script {
-                    echo "4. K8s Service..."
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ${pathYaml}/service-springmvc.yaml -n duhyun"
-                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ${pathYaml}/service-springmvc.yaml -n duhyun"
-                }
-            }
-        }
-        stage('5. K8s Port-Foward') {
-            steps {
-                script {
-                    echo "5. K8s Port-Foward..."
-                    sh "/usr/local/bin/kubectl port-forward --address 0.0.0.0 service/springmvc -n duhyun 8888:80>/dev/null 2>&1 &"
-                }
-            }
-        }
     }
 }
