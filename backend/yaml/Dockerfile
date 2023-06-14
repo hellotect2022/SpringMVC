@@ -6,9 +6,9 @@ RUN ["apt-get", "install", "openjdk-8-jdk", "maven", "-y"]
 
 # Copy local code to the container image.
 WORKDIR /app
-COPY pom.xml .
-COPY src ./src
-COPY server.xml /usr/local/tomcat/conf/server.xml
+COPY backend/pom.xml .
+COPY backend/src ./src
+COPY backend/yaml/server.xml /usr/local/tomcat/conf/server.xml
 
 # 톰캣 타임존 설정
 RUN ["rm", "/etc/localtime"]
