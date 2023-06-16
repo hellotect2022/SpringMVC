@@ -5,7 +5,7 @@ pipeline {
         pathYaml = "backend/yaml"
         imageName = "duhyun/springlegacy-mvc:latest"
         registryCredential = 'eastshine-token'
-        kubeconfig = '/home/duhyun/.kube/config'
+        kubeconfig = '/home/covi/.kube/config'
         dockerImage = ''
         namespace = "covi"
     }
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     echo "3. K8s Deploy..."
-                    //sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ${pathYaml}/deploy-springmvc.yaml -n ${namespace}"
+                    sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ${pathYaml}/deploy-springmvc.yaml -n ${namespace}"
                     sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ${pathYaml}/deploy-springmvc.yaml -n ${namespace}"
                 }
             }
