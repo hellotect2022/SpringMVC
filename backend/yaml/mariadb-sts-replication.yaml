@@ -27,7 +27,7 @@ data:
     # we have to know name of sts (`mariadb-sts`) and 
     # service `mariadb-service` in advance as an FQDN
     CHANGE MASTER TO 
-    MASTER_HOST='mariadb-sts-0.mariadb-service.default.svc.cluster.local',
+    MASTER_HOST='mariadb-sts-0.mariadb-service.covi.svc.cluster.local',
     MASTER_USER='repluser',
     MASTER_PASSWORD='replsecret',
     MASTER_CONNECT_RETRY=10;
