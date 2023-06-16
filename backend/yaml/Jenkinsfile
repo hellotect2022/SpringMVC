@@ -37,11 +37,15 @@ pipeline {
             steps {
                 script {
                     echo "3. K8s Deploy..."
-                    try {
-                        sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ${pathYaml}/deploy-springmvc.yaml -n ${namespace}"
+                    // Check if Pod exists
+                    def podExists = sh(returnStdout: true, script: "kubectl get pods -n covi --field-selector metadata.name=springmvc --output name").trim()
+
+                    if (podExists.isEmpty()) {
+                        // Create Pod
                         sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ${pathYaml}/deploy-springmvc.yaml -n ${namespace}"
-                    }catch (error){
-                        print(error)
+                    } else {
+                        // Delete Pod
+                        sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} delete -f ${pathYaml}/deploy-springmvc.yaml -n ${namespace}"
                         sh "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} apply -f ${pathYaml}/deploy-springmvc.yaml -n ${namespace}"
                     }
                 }
