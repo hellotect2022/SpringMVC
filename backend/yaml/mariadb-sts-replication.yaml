@@ -39,6 +39,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: mariadb-secret
+  namespace: covi
 type: Opaque
 data:
   mariadb-root-password: c2VjcmV0 # echo -n 'secret'|base64
@@ -49,6 +50,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mariadb-service
+  namespace: covi
   labels:
     app: mariadb
 spec:
@@ -65,6 +67,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mariadb-sts
+  namespace: covi
 spec:
   serviceName: "mariadb-service"
   replicas: 3
