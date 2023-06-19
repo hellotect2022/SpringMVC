@@ -38,7 +38,7 @@ pipeline {
                 script {
                     echo "3. K8s Deploy..."
                     // Check if Pod exists
-                    def podExists = sh(returnStdout: true, script: "kubectl get pods -n covi --field-selector metadata.name=springmvc --output name").trim()
+                    def podExists = sh(returnStdout: true, script: "/usr/local/bin/kubectl --kubeconfig=${kubeconfig} get pods -n covi --field-selector metadata.name=springmvc --output name").trim()
 
                     if (podExists.isEmpty()) {
                         // Create Pod
