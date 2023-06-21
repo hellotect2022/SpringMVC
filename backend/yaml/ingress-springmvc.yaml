@@ -1,16 +1,17 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress.ssl.covi
+  name: springmvc
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    kubernetes.io/ingres.class: nginx
-    kubernetes.io/tls-acme: "true"
-    cert-manager.io/issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-     #more_set_headers "Request-Id: $request_id";
-     #      more_set_headers "Test-Server: 0";
+   nginx.ingress.kubernetes.io/ssl-redirect: "true"
+   kubernetes.io/ingres.class: nginx
+   kubernetes.io/tls-acme: "true"
+          #cert-manager.io/issuer: "letsencrypt-prod"
+          #nginx.ingress.kubernetes.io/configuration-snippet: |
+          #more_set_headers "Request-Id: $request_id";
+          #more_set_headers "Test-Server: 0";
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - 10.10.27.17.nip.io
@@ -25,4 +26,4 @@ spec:
           service:
             name: springmvc
             port:
-              number: 8081
+              number: 443
